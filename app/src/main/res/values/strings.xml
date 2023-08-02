@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DataGrapher</string>
+    <string name="data_grapher">Data Grapher</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="chart">Chart</string>
 </resources>
