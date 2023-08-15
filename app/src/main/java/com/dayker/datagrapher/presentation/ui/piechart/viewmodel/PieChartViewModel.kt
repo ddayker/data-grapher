@@ -5,7 +5,8 @@ import android.graphics.Typeface
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dayker.datagrapher.data.storage.models.PieChartAppearance
+import com.dayker.datagrapher.domain.models.PieChartAppearance
+import com.dayker.datagrapher.domain.usecase.CreatePieChartUseCase
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.Legend.LegendOrientation
 import com.github.mikephil.charting.data.PieDataSet
@@ -16,7 +17,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PieChartViewModel @Inject constructor() : ViewModel() {
+class PieChartViewModel @Inject constructor(
+    private val createPieChartUseCase: CreatePieChartUseCase
+) : ViewModel() {
 
     private val _pieDataSet = MutableLiveData<PieDataSet>()
     val pieDataSet: LiveData<PieDataSet> = _pieDataSet
@@ -28,32 +31,10 @@ class PieChartViewModel @Inject constructor() : ViewModel() {
     val pieChartLegend: LiveData<Legend> = _pieChartLegend
 
     init {
-        // Test Data Set
-        val entries = mutableListOf<PieEntry>()
-        entries.add(PieEntry(60.5f, "Green"))
-        entries.add(PieEntry(26.7f, "Yellow"))
-        entries.add(PieEntry(24.0f, "Red"))
-        entries.add(PieEntry(140.8f, "Blue"))
-        val dataSet = PieDataSet(entries, "Election Results")
-        dataSet.colors = ColorTemplate.VORDIPLOM_COLORS.toMutableList()
-        dataSet.valueTypeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-        dataSet.colors =
-            mutableListOf(
-                Color.rgb(1, 255, 1),
-                Color.rgb(255, 255, 1),
-                Color.rgb(255, 1, 1),
-                Color.rgb(1, 1, 255)
-            )
-        dataSet.valueTextSize = 20f
-        dataSet.valueTextColor = Color.WHITE
-        _pieDataSet.value = dataSet
-        _pieChartAppearance.value = PieChartAppearance()
-        val legend = Legend()
-        legend.typeface = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC)
-        legend.isWordWrapEnabled = false
-        legend.formToTextSpace = 8f
-        legend.textSize = 16f
-        _pieChartLegend.value = legend
+        val pieChart = createPieChartUseCase.execute()
+        _pieChartAppearance.value = pieChart.appearance
+        _pieDataSet.value = pieChart.dataSet
+        _pieChartLegend.value = pieChart.legend
     }
 
     fun setFormatter(formatter: PercentFormatter) {

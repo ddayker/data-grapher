@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.dayker.datagrapher.R
-import com.dayker.datagrapher.data.storage.models.PieChartAppearance
+import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.databinding.FragmentPieChartBinding
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
 import com.dayker.datagrapher.utils.PieChartDefaults.ANIMATION_TIME
@@ -39,6 +39,7 @@ class PieChartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         currentAppearance = PieChartAppearance()
         viewModel.setFormatter(PercentFormatter(binding?.chart))
+        setGeneralSettings()
 
         viewModel.pieDataSet.observe(this) { pieDataSet ->
             recreatePieChart(PieData(pieDataSet))
@@ -67,10 +68,6 @@ class PieChartFragment : Fragment() {
                 navController.navigate(R.id.action_pieChartValuesFragment_to_pieChartAppearanceFragment)
             }
         }
-
-        binding?.chart?.animateY(ANIMATION_TIME, Easing.EaseOutBounce)
-        binding?.chart?.description?.isEnabled = false
-        binding?.chart?.setUsePercentValues(true)
     }
 
     private inline fun updateFieldIfNeeded(
@@ -138,6 +135,19 @@ class PieChartFragment : Fragment() {
     private fun recreatePieChart(pieData: PieData?) {
         binding?.chart?.data = pieData
         binding?.chart?.invalidate()
+    }
+
+    /**
+     * Applies general settings to the all pie charts.
+     * These settings cannot be configured by the user.
+     */
+    private fun setGeneralSettings(){
+        // Animate the chart with a bounce easing effect
+        binding?.chart?.animateY(ANIMATION_TIME, Easing.EaseOutBounce)
+        // Disable the chart description
+        binding?.chart?.description?.isEnabled = false
+        // Set the use of percent values for chart entries.
+        binding?.chart?.setUsePercentValues(true)
     }
 
 }

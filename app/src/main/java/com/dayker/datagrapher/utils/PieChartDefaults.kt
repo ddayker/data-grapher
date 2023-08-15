@@ -1,6 +1,7 @@
 package com.dayker.datagrapher.utils
 
 import android.graphics.Color
+import com.github.mikephil.charting.animation.Easing
 
 object PieChartDefaults {
     const val BACKGROUND_COLOR: Int = Color.WHITE
@@ -29,4 +30,12 @@ object PieChartDefaults {
     const val MIN_CENTER_TEXT_SIZE = 4
     const val MIN_LEGEND_TEXT_SIZE = 6
     const val ANIMATION_TIME = 2000
+    const val LEGEND_FORM_TO_TEXT_SPACE = 8f
+    const val LEGEND_TEXT_SIZE = 16f
+    const val VALUE_TEXT_SIZE = 20f
+    const val VALUE_TEXT_COLOR = Color.WHITE
+    const val VALUE_ONE = 60f
+    const val VALUE_TWO = 50f
+    const val VALUE_THREE = 30f
+    const val VALUE_FOUR = 100f
 }

@@ -1,4 +1,4 @@
-package com.dayker.datagrapher.data.storage.models
+package com.dayker.datagrapher.domain.models
 
 import android.graphics.Typeface
 import com.dayker.datagrapher.utils.PieChartDefaults

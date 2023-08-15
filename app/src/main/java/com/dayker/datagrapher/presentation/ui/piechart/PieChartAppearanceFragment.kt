@@ -9,7 +9,7 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.dayker.datagrapher.R
-import com.dayker.datagrapher.data.storage.models.PieChartAppearance
+import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.databinding.FragmentPieChartAppearanceBinding
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
 import com.dayker.datagrapher.utils.Constants.DEGREE_SYMBOL
@@ -75,7 +75,6 @@ class PieChartAppearanceFragment : Fragment() {
             updateLegendUI(legend)
         }
     }
-
 
     private fun setupSeekBars() {
         with(binding) {
