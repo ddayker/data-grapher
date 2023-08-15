@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvGeneral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/general"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/generalLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvGeneral">
+
+            <TextView
+                android:id="@+id/tvSliceSpace"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/slice_space"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvSliceSpaceValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_0"
+                app:layout_constraintStart_toEndOf="@+id/tvSliceSpace"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarSliceSpace"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="22dp"
+                android:max="20"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBackgroundColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/background_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSliceSpaceValue">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/backgroundColorPicker"
+                style="@style/optionCardView"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarSliceSpace" />
+
+            <TextView
+                android:id="@+id/tvMaxAngle"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/max_angle"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBackgroundColor">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvMaxAngleValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_360"
+                app:layout_constraintStart_toEndOf="@+id/tvMaxAngle"
+                app:layout_constraintTop_toBottomOf="@+id/tvBackgroundColor">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarMaxAngle"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="5dp"
+                android:max="360"
+                android:progress="360"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/backgroundColorPicker" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvHole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/hole"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/generalLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/holeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvHole">
+
+            <TextView
+                android:id="@+id/tvHoleRadius"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/hole_radius"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvHoleRadiusValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_40"
+                app:layout_constraintStart_toEndOf="@+id/tvHoleRadius"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarHoleRadius"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="5dp"
+                android:max="80"
+                android:progress="40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvHoleColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/hole_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHoleRadiusValue">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/holeColorPicker"
+                style="@style/optionCardView"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarHoleRadius" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/values"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/holeLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/valuesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvValues">
+
+
+            <TextView
+                android:id="@+id/tvPercentageDisplay"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/use_percentages"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchPercentageDisplay"
+                style="@style/optionSwitch"
+                android:layout_height="40dp"
+                android:layout_marginTop="2dp"
+                android:checked="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvValueTextSize"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_size"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPercentageDisplay">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvValueTextSizeValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_12"
+                app:layout_constraintStart_toEndOf="@+id/tvValueTextSize"
+                app:layout_constraintTop_toBottomOf="@+id/tvPercentageDisplay">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarValueTextSize"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="40dp"
+                android:max="30"
+                android:progress="12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPercentageDisplay" />
+
+            <TextView
+                android:id="@+id/tvValueTextColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvValueTextSizeValue">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/valueTextColorPicker"
+                style="@style/optionCardView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/majorDark"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarValueTextSize" />
+
+            <TextView
+                android:id="@+id/tvValueTextBold"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/bold_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvValueTextColor" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchValueTextBold"
+                style="@style/optionSwitch"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/valueTextColorPicker" />
+
+            <TextView
+                android:id="@+id/tvValueTextItalic"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/italic_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvValueTextBold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchValueTextItalic"
+                style="@style/optionSwitch"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchValueTextBold" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tvLabels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/labels"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valuesLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/labelsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabels">
+
+
+            <TextView
+                android:id="@+id/tvDrawEntryLabels"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/show_labels"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchShowLabels"
+                style="@style/optionSwitch"
+                android:layout_marginTop="5dp"
+                android:checked="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvLabelTextSize"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_size"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDrawEntryLabels">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvLabelTextSizeValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_15"
+                app:layout_constraintStart_toEndOf="@+id/tvLabelTextSize"
+                app:layout_constraintTop_toBottomOf="@+id/tvDrawEntryLabels">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarLabelTextSize"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="40dp"
+                android:max="35"
+                android:progress="15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDrawEntryLabels" />
+
+            <TextView
+                android:id="@+id/tvLabelTextColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelTextSizeValue">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/labelTextColorPicker"
+                style="@style/optionCardView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarLabelTextSize" />
+
+            <TextView
+                android:id="@+id/tvLabelTextBold"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/bold_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelTextColor" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchLabelTextBold"
+                style="@style/optionSwitch"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelTextColorPicker" />
+
+            <TextView
+                android:id="@+id/tvLabelTextItalic"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/italic_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelTextBold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchLabelTextItalic"
+                style="@style/optionSwitch"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchLabelTextBold" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/labelOptionsGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tvLabelTextSize, tvLabelTextSizeValue, seekBarLabelTextSize, tvLabelTextColor, labelTextColorPicker, tvLabelTextBold, switchLabelTextBold, tvLabelTextItalic, switchLabelTextItalic"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvTransparentCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/transparent_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelsLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/transparentCircleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTransparentCircle">
+
+            <TextView
+                android:id="@+id/tvTransparentCircleSize"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/circle_size"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvTransparentCircleValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_5"
+                app:layout_constraintStart_toEndOf="@+id/tvTransparentCircleSize"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarTransparentCircle"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="27dp"
+                android:max="100"
+                android:progress="45"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTransparentCircleColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/circle_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTransparentCircleValue">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/transparentCircleColorPicker"
+                style="@style/optionCardView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/minorWhite"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarTransparentCircle" />
+
+
+            <TextView
+                android:id="@+id/tvTransparentCircleVisibility"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/visibility"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTransparentCircleColor">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvTransparentCircleVisibilityValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_255"
+                app:layout_constraintStart_toEndOf="@+id/tvTransparentCircleVisibility"
+                app:layout_constraintTop_toBottomOf="@+id/tvTransparentCircleColor">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarTransparentCircleVisibility"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="25dp"
+                android:max="255"
+                android:progress="255"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transparentCircleColorPicker" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvCenterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/center_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transparentCircleLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/centerTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCenterText">
+
+
+            <TextView
+                android:id="@+id/tvShowCenterText"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/show_center_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchCenterText"
+                style="@style/optionSwitch"
+                android:layout_marginTop="5dp"
+                android:checked="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvCenterTextField"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/center_text_"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShowCenterText">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvCenterTextString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/center_text_background"
+                android:paddingStart="5dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="2dp"
+                android:text="@string/edit_center_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchCenterText" />
+
+            <TextView
+                android:id="@+id/tvCenterTextSize"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_size"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextField">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvCenterTextSizeValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_15"
+                app:layout_constraintStart_toEndOf="@+id/tvCenterTextSize"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextField">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarCenterTextSize"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
+                android:max="50"
+                android:progress="15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextField" />
+
+            <TextView
+                android:id="@+id/tvCenterTextRadius"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_radius"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextSize">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvCenterTextRadiusValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_40"
+                app:layout_constraintStart_toEndOf="@+id/tvCenterTextRadius"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextSize">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarCenterTextRadius"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
+                android:max="80"
+                android:progress="40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextSize" />
+
+            <TextView
+                android:id="@+id/tvCenterTextColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextRadiusValue">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/centerTextColorPicker"
+                style="@style/optionCardView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/majorDark"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarCenterTextRadius" />
+
+            <TextView
+                android:id="@+id/tvCenterTextBold"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/bold_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextColor" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchCenterTextBold"
+                style="@style/optionSwitch"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/centerTextColorPicker" />
+
+            <TextView
+                android:id="@+id/tvCenterTextItalic"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/italic_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterTextBold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchCenterTextItalic"
+                style="@style/optionSwitch"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchCenterTextBold" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/centerTextOptionsGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tvCenterTextField, tvCenterTextString, tvCenterTextSize, tvCenterTextSizeValue, seekBarCenterTextSize, tvCenterTextRadius, tvCenterTextRadiusValue, seekBarCenterTextRadius, tvCenterTextColor, centerTextColorPicker, tvCenterTextBold, switchCenterTextBold, tvCenterTextItalic, switchCenterTextItalic"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tvLegend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/legend"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/centerTextLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/legendLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvLegend"
+            tools:layout_editor_absoluteX="15dp">
+
+
+            <TextView
+                android:id="@+id/tvShowLegend"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/show_legend"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchLegend"
+                style="@style/optionSwitch"
+                android:layout_marginTop="5dp"
+                android:checked="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvLegendOrientation"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/orientation"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShowLegend"
+                tools:ignore="TooManyViews">
+
+            </TextView>
+
+
+            <RadioGroup
+                android:id="@+id/groupOrientation"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="170dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchLegend"
+                tools:ignore="TooManyViews">
+
+                <RadioButton
+                    android:id="@+id/orientationHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/orientation_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/horizontal"
+                    android:textColor="@drawable/orientation_radio_text"
+                    android:textSize="12sp"
+                    tools:ignore="TooManyViews" />
+
+                <RadioButton
+                    android:id="@+id/orientationVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/orientation_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/vertical"
+                    android:textColor="@drawable/orientation_radio_text"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvLegendForm"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/form"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendOrientation">
+
+            </TextView>
+
+
+            <RadioGroup
+                android:id="@+id/groupForm"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="170dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/groupOrientation">
+
+                <RadioButton
+                    android:id="@+id/formCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/orientation_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/circle"
+                    android:textColor="@drawable/orientation_radio_text"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/formSquare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/orientation_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/square"
+                    android:textColor="@drawable/orientation_radio_text"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/formLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/orientation_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/line"
+                    android:textColor="@drawable/orientation_radio_text"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvLegendTextSize"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_size"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendForm">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvLegendTextSizeValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_15"
+                app:layout_constraintStart_toEndOf="@+id/tvLegendTextSize"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendForm">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarLegendTextSize"
+                style="@style/optionSeekBar"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
+                android:max="20"
+                android:progress="16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendForm" />
+
+            <TextView
+                android:id="@+id/tvLegendSize"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/form_size"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendTextSize">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvLegendSizeValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_40"
+                app:layout_constraintStart_toEndOf="@+id/tvLegendSize"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendTextSize">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarLegendSize"
+                style="@style/optionSeekBar"
+                android:layout_marginTop="12dp"
+                android:max="16"
+                android:progress="8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendTextSize" />
+
+            <TextView
+                android:id="@+id/tvLegendTextColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_color"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendSize">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/legendTextColorPicker"
+                style="@style/optionCardView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/majorDark"
+                app:layout_constraintTop_toBottomOf="@+id/seekBarLegendSize" />
+
+            <TextView
+                android:id="@+id/tvLegendTextBold"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/bold_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendTextColor" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchLegendTextBold"
+                style="@style/optionSwitch"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/legendTextColorPicker" />
+
+            <TextView
+                android:id="@+id/tvLegendTextItalic"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/italic_text"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendTextBold" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchLegendTextItalic"
+                style="@style/optionSwitch"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchLegendTextBold" />
+
+            <TextView
+                android:id="@+id/tvLegendVerticalPosition"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/vertical_position"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendTextItalic" />
+
+            <SeekBar
+                android:id="@+id/seekBarVerticalPosition"
+                style="@style/optionSeekBarDiscrete"
+                android:layout_marginTop="12dp"
+                android:max="2"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchLegendTextItalic" />
+
+
+            <TextView
+                android:id="@+id/tvLegendHorizontalPosition"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/horizontal_position"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendVerticalPosition" />
+
+            <SeekBar
+                android:id="@+id/seekBarHorizontalPosition"
+                style="@style/optionSeekBarDiscrete"
+                android:layout_marginTop="12dp"
+                android:max="2"
+                android:progress="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendVerticalPosition" />
+
+
+            <TextView
+                android:id="@+id/tvLegendFromForm"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/text_offset"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendHorizontalPosition" />
+
+
+            <TextView
+                android:id="@+id/tvLegendFromFormValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_4"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toEndOf="@+id/tvLegendFromForm"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendHorizontalPosition" />
+
+            <SeekBar
+                android:id="@+id/seekBarFromForm"
+                style="@style/optionSeekBar"
+                android:layout_marginTop="12dp"
+                android:max="15"
+                android:progress="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/tvLegendHorizontalPosition" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/legendOptionsGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tvLegendOrientation, groupOrientation, tvLegendForm, groupForm, tvLegendTextSize, tvLegendTextSizeValue, seekBarLegendTextSize, tvLegendSize, tvLegendSizeValue, seekBarLegendSize, tvLegendTextColor, legendTextColorPicker, tvLegendTextBold, switchLegendTextBold, tvLegendTextItalic, switchLegendTextItalic, tvLegendVerticalPosition, seekBarVerticalPosition, tvLegendHorizontalPosition, seekBarHorizontalPosition, tvLegendFromForm, tvLegendFromFormValue, seekBarFromForm"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvExtraOffsets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/offsets"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/legendLayout">
+
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/extraOffsetsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvExtraOffsets">
+
+            <TextView
+                android:id="@+id/tvOffsetLeft"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/left"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvOffsetLeftValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_0"
+                app:layout_constraintStart_toEndOf="@+id/tvOffsetLeft"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarOffsetLeft"
+                style="@style/optionSeekBar"
+                android:max="50"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvOffsetRight"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/right"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetLeft">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvOffsetRightValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_0"
+                app:layout_constraintStart_toEndOf="@+id/tvOffsetRight"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetLeft">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarOffsetRight"
+                style="@style/optionSeekBar"
+                android:max="50"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetLeft" />
+
+
+            <TextView
+                android:id="@+id/tvOffsetTop"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/top"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetRight">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvOffsetTopValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_0"
+                app:layout_constraintStart_toEndOf="@+id/tvOffsetTop"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetRight">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarOffsetTop"
+                style="@style/optionSeekBar"
+                android:max="50"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetRight" />
+
+
+            <TextView
+                android:id="@+id/tvOffsetBottom"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="10dp"
+                android:text="@string/bottom"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetTop">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvOffsetBottomValue"
+                style="@style/optionText"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/_0"
+                app:layout_constraintStart_toEndOf="@+id/tvOffsetBottom"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetTop">
+
+            </TextView>
+
+            <SeekBar
+                android:id="@+id/seekBarOffsetBottom"
+                style="@style/optionSeekBar"
+                android:max="50"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOffsetTop" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

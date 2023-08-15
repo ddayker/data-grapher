@@ -31,4 +31,45 @@
         <item name="android:textColor">@color/majorDark</item>
     </style>
 
+    <style name="optionText">
+        <item name="android:textColor">@color/textGray</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="optionSeekBar">
+        <item name="android:thumb">@drawable/thumb</item>
+        <item name="android:progressBackgroundTint">@color/majorRed</item>
+        <item name="android:progressTint">@color/majorRed</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="optionSeekBarDiscrete" parent="Widget.AppCompat.SeekBar.Discrete">
+<!--        <item name="android:thumb">@drawable/thumb</item>-->
+        <item name="android:progressBackgroundTint">@color/majorDark</item>
+        <item name="android:progressTint">@color/majorDark</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="optionCardView">
+        <item name="android:layout_marginStart">170dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_width">60dp</item>
+    </style>
+
+    <style name="optionSwitch">
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="track">@drawable/switch_track</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_marginStart">155dp</item>
+    </style>
 </resources>

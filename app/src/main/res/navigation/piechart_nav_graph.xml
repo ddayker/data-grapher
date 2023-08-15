@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/piechart_nav_graph"
+    app:startDestination="@+id/pieChartValuesFragment">
+
+    <fragment
+        android:id="@+id/pieChartValuesFragment"
+        android:name="com.dayker.datagrapher.presentation.ui.piechart.PieChartValuesFragment"
+        android:label="PieChartValuesFragment">
+        <action
+            android:id="@+id/action_pieChartValuesFragment_to_pieChartAppearanceFragment"
+            app:destination="@id/pieChartAppearanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pieChartAppearanceFragment"
+        android:name="com.dayker.datagrapher.presentation.ui.piechart.PieChartAppearanceFragment"
+        android:label="PieChartAppearanceFragment">
+        <action
+            android:id="@+id/action_pieChartAppearanceFragment_to_pieChartValuesFragment"
+            app:destination="@id/pieChartValuesFragment" />
+    </fragment>
+</navigation>

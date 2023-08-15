@@ -9,22 +9,35 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tool_bar"
+            android:id="@+id/tool_bar_main"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
             android:textAppearance="@style/ToolBarText"
+            android:visibility="gone"
             app:navigationIcon="@drawable/menu_img"
             app:popupTheme="@style/popupTheme">
 
             <TextView
-                android:id="@+id/title1"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:text="@string/data_grapher"
                 android:textAppearance="@style/ToolBarText" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar_creation"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:textAppearance="@style/ToolBarText"
+            app:navigationIcon="@drawable/chevron_back"
+            app:popupTheme="@style/popupTheme"
+            app:title=" ">
 
         </androidx.appcompat.widget.Toolbar>
 
