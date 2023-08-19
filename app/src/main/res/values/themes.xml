@@ -15,6 +15,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
     </style>
 
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -71,5 +72,17 @@
         <item name="android:layout_height">30dp</item>
         <item name="android:layout_width">55dp</item>
         <item name="android:layout_marginStart">155dp</item>
+    </style>
+
+    <style name="optionName">
+        <item name="android:layout_marginStart">28dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="behavior_draggable">false</item>
+        <item name="colorPrimary">@color/majorRed</item>
     </style>
 </resources>

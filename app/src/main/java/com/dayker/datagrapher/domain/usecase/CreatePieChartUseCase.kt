@@ -42,7 +42,7 @@ class CreatePieChartUseCase() {
         entries.add(PieEntry(VALUE_THREE, VALUE_THREE_LABEL))
         entries.add(PieEntry(VALUE_FOUR, VALUE_FOUR_LABEL))
         val dataSet = PieDataSet(entries, CHART_DEFAULT_LABEL)
-        dataSet.colors = ColorTemplate.VORDIPLOM_COLORS.toMutableList()
+        dataSet.colors = ColorTemplate.VORDIPLOM_COLORS.toMutableList().take(dataSet.entryCount)
         dataSet.valueTypeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         dataSet.valueTextSize = VALUE_TEXT_SIZE
         dataSet.valueTextColor = VALUE_TEXT_COLOR

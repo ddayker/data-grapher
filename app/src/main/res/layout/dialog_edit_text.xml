@@ -20,6 +20,7 @@
             android:id="@+id/editTextCenterText"
             android:layout_width="match_parent"
             android:paddingTop="28dp"
+            android:maxLength="18"
             android:backgroundTint="@color/minorWhite"
             android:layout_height="wrap_content"
             android:inputType="text" />

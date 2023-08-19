@@ -72,4 +72,28 @@
     <string name="legend_text_color_pick">Legend text color:</string>
     <string name="enter_new_center_text">Enter new center text</string>
     <string name="offsets">Offsets</string>
+    <string name="chart_name">Chart name:</string>
+    <string name="results">Results</string>
+    <string name="edit">Edit</string>
+    <string name="_1">№1</string>
+    <string name="_40p">40%</string>
+    <string name="percentage_symbol">%</string>
+    <string name="numero_symbol">№</string>
+    <string name="degree_symbol">°</string>
+    <string name="confirm">Confirm</string>
+    <string name="change_entry">Change entry</string>
+    <string name="label">Label:</string>
+    <string name="value">Value:</string>
+    <string name="percentage">Percentage =</string>
+    <string name="color">Color</string>
+    <string name="add">Add</string>
+    <string name="a_new_entry">new entry</string>
+    <string name="add_a_new_entry">Add a new entry</string>
+    <string name="change_entry_n">Change entry №</string>
+    <string name="pick_color">Select a color</string>
+    <string name="delete">Delete</string>
+    <string name="set_chart_name">Chart name</string>
+    <string name="label_is_empty">The label cannot be empty</string>
+    <string name="value_is_0">The value cannot be 0</string>
+    <string name="value_is_empty">The value cannot be empty</string>
 </resources>

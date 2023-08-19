@@ -2,11 +2,14 @@ package com.dayker.datagrapher.presentation.ui.piechart.viewmodel
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.view.animation.Transformation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
 import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.domain.usecase.CreatePieChartUseCase
+import com.dayker.datagrapher.presentation.ui.piechart.models.PieChartValue
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.Legend.LegendOrientation
 import com.github.mikephil.charting.data.PieDataSet
@@ -29,6 +32,8 @@ class PieChartViewModel @Inject constructor(
 
     private val _pieChartLegend = MutableLiveData<Legend>()
     val pieChartLegend: LiveData<Legend> = _pieChartLegend
+
+    val pieChartValues: LiveData<List<PieChartValue>> = pieDataSet.map { mapToPieChartValueList() }
 
     init {
         val pieChart = createPieChartUseCase.execute()
@@ -265,4 +270,45 @@ class PieChartViewModel @Inject constructor(
             it.centerText = text
         }
     }
+
+    private fun mapToPieChartValueList(): List<PieChartValue> {
+        val pieChartValues = mutableListOf<PieChartValue>()
+        val pieDataSet = _pieDataSet.value
+        pieDataSet?.let {
+            for (i in 0 until it.entryCount) {
+                val entry = it.getEntryForIndex(i)
+                pieChartValues.add(PieChartValue(entry.value, entry.label, it.colors[i]))
+            }
+        }
+        return pieChartValues
+    }
+
+    fun addEntry(value: Float, label: String, color: Int) {
+        _pieDataSet.updateValue {
+            it.addEntry(PieEntry(value, label))
+            it.colors?.add(color)
+        }
+    }
+
+    fun updateEntry(index: Int, value: Float, label: String, color: Int) {
+        _pieDataSet.updateValue {
+            it.values[index] = PieEntry(value, label)
+            it.colors[index] = color
+        }
+    }
+
+    fun deleteEntry(index: Int) {
+        _pieDataSet.updateValue {
+            it.removeEntry(index)
+            it.colors.removeAt(index)
+        }
+    }
+
+    fun setChartName(name: String){
+        _pieDataSet.updateValue {
+            it.label = name
+        }
+    }
+
+
 }

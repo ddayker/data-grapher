@@ -11,9 +11,7 @@
 
         <TextView
             android:id="@+id/tvGeneral"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
+            style="@style/optionName"
             android:layout_marginTop="5dp"
             android:text="@string/general"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,10 +119,7 @@
 
         <TextView
             android:id="@+id/tvHole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/hole"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/generalLayout">
@@ -199,10 +194,7 @@
 
         <TextView
             android:id="@+id/tvValues"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/values"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/holeLayout">
@@ -336,10 +328,7 @@
 
         <TextView
             android:id="@+id/tvLabels"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/labels"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/valuesLayout">
@@ -477,10 +466,7 @@
 
         <TextView
             android:id="@+id/tvTransparentCircle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/transparent_circle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelsLayout">
@@ -588,10 +574,7 @@
 
         <TextView
             android:id="@+id/tvCenterText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/center_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/transparentCircleLayout">
@@ -650,12 +633,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="170dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/center_text_background"
                 android:paddingStart="5dp"
                 android:paddingTop="2dp"
                 android:paddingEnd="5dp"
                 android:paddingBottom="2dp"
                 android:text="@string/edit_center_text"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switchCenterText" />
 
@@ -781,11 +764,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switchCenterTextBold" />
 
+            <ImageButton
+                android:id="@+id/btnEditCenterText"
+                android:backgroundTint="@color/white"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchCenterText"
+                app:srcCompat="@drawable/ic_baseline_edit_24"
+                android:contentDescription="@string/edit"
+                />
+
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/centerTextOptionsGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="tvCenterTextField, tvCenterTextString, tvCenterTextSize, tvCenterTextSizeValue, seekBarCenterTextSize, tvCenterTextRadius, tvCenterTextRadiusValue, seekBarCenterTextRadius, tvCenterTextColor, centerTextColorPicker, tvCenterTextBold, switchCenterTextBold, tvCenterTextItalic, switchCenterTextItalic"
+                app:constraint_referenced_ids="btnEditCenterText, tvCenterTextField, tvCenterTextString, tvCenterTextSize, tvCenterTextSizeValue, seekBarCenterTextSize, tvCenterTextRadius, tvCenterTextRadiusValue, seekBarCenterTextRadius, tvCenterTextColor, centerTextColorPicker, tvCenterTextBold, switchCenterTextBold, tvCenterTextItalic, switchCenterTextItalic"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -793,10 +789,7 @@
 
         <TextView
             android:id="@+id/tvLegend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/legend"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/centerTextLayout">
@@ -1159,10 +1152,7 @@
 
         <TextView
             android:id="@+id/tvExtraOffsets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
+            style="@style/optionName"
             android:text="@string/offsets"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/legendLayout">

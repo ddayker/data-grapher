@@ -12,7 +12,6 @@ import com.dayker.datagrapher.R
 import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.databinding.FragmentPieChartAppearanceBinding
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
-import com.dayker.datagrapher.utils.Constants.DEGREE_SYMBOL
 import com.dayker.datagrapher.utils.PieChartDefaults.MIN_ANGLE
 import com.dayker.datagrapher.utils.PieChartDefaults.MIN_CENTER_TEXT_SIZE
 import com.dayker.datagrapher.utils.PieChartDefaults.MIN_LABEL_TEXT_SIZE
@@ -278,9 +277,28 @@ class PieChartAppearanceFragment : Fragment() {
     }
 
     private fun setupCenterTextEditing() {
-        binding?.tvCenterTextString?.setOnClickListener {
-            showEditTextDialog(requireContext(), getString(R.string.center_text)) {
-                viewModel.changeCentralText(it)
+        with(binding) {
+            if (this != null) {
+                tvCenterTextString.setOnClickListener {
+                    val textForEditing = tvCenterTextString.text.toString().takeIf { it != getString(R.string.edit_center_text) } ?: ""
+                    showEditTextDialog(
+                        requireContext(),
+                        getString(R.string.center_text),
+                        textForEditing
+                    ) {
+                        viewModel.changeCentralText(it)
+                    }
+                }
+                btnEditCenterText.setOnClickListener {
+                    val textForEditing = tvCenterTextString.text.toString().takeIf { it != getString(R.string.edit_center_text) } ?: ""
+                    showEditTextDialog(
+                        requireContext(),
+                        getString(R.string.center_text),
+                        textForEditing
+                    ) {
+                        viewModel.changeCentralText(it)
+                    }
+                }
             }
         }
     }
@@ -315,7 +333,7 @@ class PieChartAppearanceFragment : Fragment() {
                 centerTextColorPicker.setCardBackgroundColor(appearance.centerTextColor)
                 holeColorPicker.setCardBackgroundColor(appearance.holeColor)
                 transparentCircleColorPicker.setCardBackgroundColor(appearance.transparentCircleColor)
-                tvMaxAngleValue.text = "${appearance.maxAngle.toInt()}$DEGREE_SYMBOL"
+                tvMaxAngleValue.text = "${appearance.maxAngle.toInt()}${getString(R.string.degree_symbol)}"
                 tvHoleRadiusValue.text = appearance.holeRadius.toInt().toString()
                 switchPercentageDisplay.isChecked = appearance.usePercentValues
                 switchShowLabels.isChecked = appearance.setDrawEntryLabels

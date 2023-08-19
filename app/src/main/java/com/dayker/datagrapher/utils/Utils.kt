@@ -56,9 +56,15 @@ object Utils {
             .show()
     }
 
-    fun showEditTextDialog(context: Context, title: String, action: (String) -> Unit) {
+    fun showEditTextDialog(
+        context: Context,
+        title: String,
+        text: String = "",
+        action: (String) -> Unit
+    ) {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_text, null)
         val editText = dialogView.findViewById<EditText>(R.id.editTextCenterText)
+        editText.setText(text)
         val dialog = AlertDialog.Builder(context)
             .setTitle(title)
             .setView(dialogView)
@@ -114,6 +120,10 @@ object Utils {
         }
         val typeface = Typeface.create(Typeface.DEFAULT, typefaceStyle)
         updateFunction(typeface)
+    }
+
+    fun calculatePercentage(value: Float, generalValue: Float): String {
+        return String.format("%.1f", value / generalValue * 100) + "%"
     }
 
 

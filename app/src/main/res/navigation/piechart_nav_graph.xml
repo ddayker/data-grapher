@@ -20,4 +20,31 @@
             android:id="@+id/action_pieChartAppearanceFragment_to_pieChartValuesFragment"
             app:destination="@id/pieChartValuesFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/pieChartValueConfigFragment"
+        android:name="com.dayker.datagrapher.presentation.ui.piechart.PieChartValueConfigFragment"
+        android:label="PieChartValueConfigFragment">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="label"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="value"
+            android:defaultValue="0"
+            app:argType="float" />
+        <argument
+            android:name="color"
+            android:defaultValue="-1555131"
+            app:argType="integer" />
+        <argument
+            android:name="position"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </dialog>
+    <action
+        android:id="@+id/action_show_bottom_sheet_dialog"
+        app:destination="@id/pieChartValueConfigFragment" />
 </navigation>

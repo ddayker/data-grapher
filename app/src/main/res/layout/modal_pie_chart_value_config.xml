@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background"
+    android:elevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/tab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/Cancel"
+            android:textColor="@color/majorRed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/confirm"
+            android:textColor="@color/majorRed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/change_entry"
+            android:textColor="@color/minorGray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cancel" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/option_margin"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/option_margin"
+            android:background="@drawable/option_background"
+            android:elevation="5dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:layout_editor_absoluteX="15dp">
+
+
+            <TextView
+                android:id="@+id/tvLabel"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="22dp"
+                android:text="@string/label"
+                android:textSize="18sp"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutLabel"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:boxStrokeColor="@color/majorRed"
+                app:helperTextTextColor="@color/majorRed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvLabel"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:inputType="text"
+                    android:maxLength="30"
+                    android:textColor="@color/majorDark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvValue"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="35dp"
+                android:text="@string/value"
+                android:textSize="18sp"
+                android:theme="@style/optionText"
+                app:helperTextTextColor="@color/majorRed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLabel">
+
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutValue"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="30dp"
+                app:boxStrokeColor="@color/majorRed"
+                app:helperTextTextColor="@color/majorRed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvValue"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/majorDark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvPercentage"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="35dp"
+                android:text="@string/percentage"
+                android:textSize="18sp"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutValue">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvPercentageValue"
+                style="@style/optionText"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="35dp"
+                android:textColor="@color/majorRed"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/tvPercentage"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutValue"
+                tools:text="45.7%" />
+
+
+            <TextView
+                android:id="@+id/tvColor"
+                style="@style/optionText"
+                android:layout_marginStart="@dimen/option_margin"
+                android:layout_marginTop="35dp"
+                android:text="@string/color"
+                android:textSize="18sp"
+                android:theme="@style/optionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPercentage">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/colorPicker"
+                style="@style/optionCardView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="35dp"
+                app:cardBackgroundColor="@color/majorRed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvColor"
+                app:layout_constraintTop_toBottomOf="@+id/tvPercentageValue" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/deleteLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/colorPicker"
+                tools:ignore="RtlSymmetry">
+
+                <TextView
+                    android:id="@+id/tvDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/delete"
+                    android:textColor="@color/majorRed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="3dp"
+                    android:contentDescription="@string/delete"
+                    app:layout_constraintStart_toEndOf="@+id/tvDelete"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_delete_outline_24" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
