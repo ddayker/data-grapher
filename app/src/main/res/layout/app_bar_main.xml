@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/tool_bar_main"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -9,12 +11,11 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tool_bar_main"
+            android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
             android:textAppearance="@style/ToolBarText"
-            android:visibility="gone"
             app:navigationIcon="@drawable/menu_img"
             app:popupTheme="@style/popupTheme">
 
@@ -26,18 +27,6 @@
                 android:layout_alignParentBottom="true"
                 android:text="@string/data_grapher"
                 android:textAppearance="@style/ToolBarText" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tool_bar_creation"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            android:textAppearance="@style/ToolBarText"
-            app:navigationIcon="@drawable/chevron_back"
-            app:popupTheme="@style/popupTheme"
-            app:title=" ">
 
         </androidx.appcompat.widget.Toolbar>
 

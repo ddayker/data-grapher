@@ -14,8 +14,8 @@ import com.dayker.datagrapher.R
 import com.dayker.datagrapher.databinding.ModalPieChartValueConfigBinding
 import com.dayker.datagrapher.presentation.ui.piechart.models.PieChartValue
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
-import com.dayker.datagrapher.utils.Utils
-import com.dayker.datagrapher.utils.Utils.calculatePercentage
+import com.dayker.datagrapher.utils.UIUtilities.showColorPickerDialog
+import com.dayker.datagrapher.utils.Utilities.calculatePercentage
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +29,7 @@ class PieChartValueConfigFragment : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.BottomSheetDialog)
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.bottomSheetDialog)
     }
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ class PieChartValueConfigFragment : BottomSheetDialogFragment() {
             }
         }
         binding?.colorPicker?.setOnClickListener {
-            Utils.showColorPickerDialog(
+            showColorPickerDialog(
                 requireContext(),
                 getString(R.string.pick_color)
             ) { selectedColor ->

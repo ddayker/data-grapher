@@ -1,6 +1,7 @@
 package com.dayker.datagrapher.presentation.ui.piechart
 
 import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.dayker.datagrapher.R
-import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.databinding.FragmentPieChartBinding
+import com.dayker.datagrapher.domain.models.PieChartAppearance
+import com.dayker.datagrapher.presentation.core.ChartExporter
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
 import com.dayker.datagrapher.utils.PieChartDefaults.ANIMATION_TIME
+import com.dayker.datagrapher.utils.UIUtilities.showConfirmationDialog
+import com.dayker.datagrapher.utils.UIUtilities.showSaveConfirmationDialog
+import com.dayker.datagrapher.utils.Utilities.executeIfExternalStoragePermissionGranted
+import com.dayker.datagrapher.utils.Utilities.generateImageName
+import com.dayker.datagrapher.utils.Utilities.viewToBitmap
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
@@ -21,7 +29,7 @@ import com.github.mikephil.charting.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PieChartFragment : Fragment() {
+class PieChartFragment : Fragment(), ChartExporter {
 
     private var binding: FragmentPieChartBinding? = null
     private val viewModel: PieChartViewModel by activityViewModels()
@@ -40,6 +48,7 @@ class PieChartFragment : Fragment() {
         currentAppearance = PieChartAppearance()
         viewModel.setFormatter(PercentFormatter(binding?.chart))
         setGeneralSettings()
+        setUpToolBar()
 
         viewModel.pieDataSet.observe(this) { pieDataSet ->
             recreatePieChart(PieData(pieDataSet))
@@ -137,11 +146,47 @@ class PieChartFragment : Fragment() {
         binding?.chart?.invalidate()
     }
 
+    private fun setUpToolBar() {
+        binding?.appBar?.toolBarCreation?.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding?.appBar?.btnReset?.setOnClickListener {
+            showConfirmationDialog(
+                context = requireContext(),
+                title = getString(R.string.reset_chart),
+                message = getString(R.string.lost_chart_warning)
+            ) { viewModel.initPieChart() }
+        }
+        binding?.appBar?.btnExport?.setOnClickListener {
+            exportChartImage()
+        }
+    }
+
+     override fun exportChartImage(){
+        val bitmap = viewToBitmap(view = binding?.chart!!)
+        val displayName = generateImageName(requireContext())
+        if (Build.VERSION.SDK_INT < 29) {
+            executeIfExternalStoragePermissionGranted(
+                context = requireContext(),
+                activity = requireActivity()
+            ) {
+                showSaveConfirmationDialog(name = displayName, context = requireContext(), snackBarView = binding?.root!!){
+                    viewModel.saveChartToGallery(bitmap = bitmap, name = it)
+                }
+            }
+        } else {
+            showSaveConfirmationDialog(name = displayName, context = requireContext(), snackBarView = binding?.root!!){
+                viewModel.saveChartToGallery(bitmap = bitmap, name = it)
+            }
+        }
+    }
+
+
     /**
      * Applies general settings to the all pie charts.
      * These settings cannot be configured by the user.
      */
-    private fun setGeneralSettings(){
+    private fun setGeneralSettings() {
         // Animate the chart with a bounce easing effect
         binding?.chart?.animateY(ANIMATION_TIME, Easing.EaseOutBounce)
         // Disable the chart description
@@ -149,5 +194,4 @@ class PieChartFragment : Fragment() {
         // Set the use of percent values for chart entries.
         binding?.chart?.setUsePercentValues(true)
     }
-
 }

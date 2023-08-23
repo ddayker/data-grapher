@@ -1,4 +1,4 @@
-package com.dayker.datagrapher.presentation.ui.diffutil
+package com.dayker.datagrapher.presentation.core
 
 import androidx.recyclerview.widget.DiffUtil
 

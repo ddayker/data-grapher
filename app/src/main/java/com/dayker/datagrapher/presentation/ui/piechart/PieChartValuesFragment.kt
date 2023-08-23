@@ -14,7 +14,8 @@ import com.dayker.datagrapher.databinding.FragmentPieChartValuesBinding
 import com.dayker.datagrapher.presentation.ui.piechart.adapter.PieChartValuesAdapter
 import com.dayker.datagrapher.presentation.ui.piechart.models.PieChartValue
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
-import com.dayker.datagrapher.utils.Utils
+import com.dayker.datagrapher.utils.UIUtilities.showEditTextDialog
+import com.dayker.datagrapher.utils.Utilities
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -52,7 +53,7 @@ class PieChartValuesFragment : Fragment() {
             navController.navigate(action)
         }
         binding?.btnEdit?.setOnClickListener {
-            Utils.showEditTextDialog(
+            showEditTextDialog(
                 requireContext(),
                 getString(R.string.set_chart_name),
                 binding?.chartNameValue?.text.toString()

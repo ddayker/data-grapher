@@ -16,6 +16,8 @@
         <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="android:windowSoftInputMode">adjustNothing</item>
+        <item name="snackbarStyle">@style/snackbar</item>
+        <item name="snackbarTextViewStyle">@style/snackbar</item>
     </style>
 
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -81,8 +83,14 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="BottomSheetDialog" parent="Theme.Material3.DayNight.BottomSheetDialog">
+    <style name="bottomSheetDialog" parent="Theme.Material3.DayNight.BottomSheetDialog">
         <item name="behavior_draggable">false</item>
         <item name="colorPrimary">@color/majorRed</item>
+    </style>
+
+    <style name="snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:background">@color/majorRed</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

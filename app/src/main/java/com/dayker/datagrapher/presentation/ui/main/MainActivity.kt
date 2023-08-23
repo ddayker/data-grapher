@@ -43,11 +43,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpActionBar() {
-        binding.appBar.toolBarMain.setNavigationOnClickListener {
+        binding.appBar.toolBar.setNavigationOnClickListener {
             toggleDrawer()
-        }
-        binding.appBar.toolBarCreation.setNavigationOnClickListener {
-            navController.popBackStack()
         }
     }
 
@@ -61,13 +58,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateToolbar(destination: NavDestination) {
         when (destination.id) {
-            R.id.pieChartFragment -> {
-                binding.appBar.toolBarMain.visibility = View.GONE
-                binding.appBar.toolBarCreation.visibility = View.VISIBLE
+            R.id.homeFragment -> {
+                binding.appBar.toolBarMain.visibility = View.VISIBLE
             }
             else -> {
-                binding.appBar.toolBarCreation.visibility = View.GONE
-                binding.appBar.toolBarMain.visibility = View.VISIBLE
+                binding.appBar.toolBarMain.visibility = View.GONE
             }
         }
     }

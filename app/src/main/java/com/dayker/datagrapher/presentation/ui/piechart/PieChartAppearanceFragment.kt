@@ -17,14 +17,14 @@ import com.dayker.datagrapher.utils.PieChartDefaults.MIN_CENTER_TEXT_SIZE
 import com.dayker.datagrapher.utils.PieChartDefaults.MIN_LABEL_TEXT_SIZE
 import com.dayker.datagrapher.utils.PieChartDefaults.MIN_LEGEND_TEXT_SIZE
 import com.dayker.datagrapher.utils.PieChartDefaults.MIN_VALUE_TEXT_SIZE
-import com.dayker.datagrapher.utils.Utils.isBold
-import com.dayker.datagrapher.utils.Utils.isItalic
-import com.dayker.datagrapher.utils.Utils.observeOnce
-import com.dayker.datagrapher.utils.Utils.onProgressChanged
-import com.dayker.datagrapher.utils.Utils.setupSeekBar
-import com.dayker.datagrapher.utils.Utils.showColorPickerDialog
-import com.dayker.datagrapher.utils.Utils.showEditTextDialog
-import com.dayker.datagrapher.utils.Utils.updateTypeface
+import com.dayker.datagrapher.utils.UIUtilities.isBold
+import com.dayker.datagrapher.utils.UIUtilities.isItalic
+import com.dayker.datagrapher.utils.UIUtilities.showColorPickerDialog
+import com.dayker.datagrapher.utils.UIUtilities.showEditTextDialog
+import com.dayker.datagrapher.utils.UIUtilities.updateTypeface
+import com.dayker.datagrapher.utils.Utilities.observeOnce
+import com.dayker.datagrapher.utils.Utilities.onProgressChanged
+import com.dayker.datagrapher.utils.Utilities.setupSeekBar
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.utils.Utils
@@ -280,24 +280,27 @@ class PieChartAppearanceFragment : Fragment() {
         with(binding) {
             if (this != null) {
                 tvCenterTextString.setOnClickListener {
-                    val textForEditing = tvCenterTextString.text.toString().takeIf { it != getString(R.string.edit_center_text) } ?: ""
-                    showEditTextDialog(
-                        requireContext(),
-                        getString(R.string.center_text),
-                        textForEditing
-                    ) {
-                        viewModel.changeCentralText(it)
-                    }
+                    editCenterText()
                 }
                 btnEditCenterText.setOnClickListener {
-                    val textForEditing = tvCenterTextString.text.toString().takeIf { it != getString(R.string.edit_center_text) } ?: ""
-                    showEditTextDialog(
-                        requireContext(),
-                        getString(R.string.center_text),
-                        textForEditing
-                    ) {
-                        viewModel.changeCentralText(it)
-                    }
+                    editCenterText()
+                }
+            }
+        }
+    }
+
+    private fun editCenterText() {
+        with(binding) {
+            if (this != null) {
+                val textForEditing = tvCenterTextString.text.toString()
+                    .takeIf { it != getString(R.string.edit_center_text) } ?: ""
+                showEditTextDialog(
+                    context = requireContext(),
+                    title = getString(R.string.center_text),
+                    text = textForEditing,
+                    hint = getString(R.string.edit_center_text)
+                ) {
+                    viewModel.changeCentralText(it)
                 }
             }
         }

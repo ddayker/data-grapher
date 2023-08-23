@@ -1,27 +1,28 @@
 package com.dayker.datagrapher.presentation.ui.piechart.viewmodel
 
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Typeface
-import android.view.animation.Transformation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.domain.usecase.CreatePieChartUseCase
+import com.dayker.datagrapher.domain.usecase.SaveChartAsImageUseCase
 import com.dayker.datagrapher.presentation.ui.piechart.models.PieChartValue
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.Legend.LegendOrientation
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
-import com.github.mikephil.charting.utils.ColorTemplate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class PieChartViewModel @Inject constructor(
-    private val createPieChartUseCase: CreatePieChartUseCase
+    private val createPieChartUseCase: CreatePieChartUseCase,
+    private val saveChartAsImageUseCase: SaveChartAsImageUseCase
 ) : ViewModel() {
 
     private val _pieDataSet = MutableLiveData<PieDataSet>()
@@ -36,6 +37,10 @@ class PieChartViewModel @Inject constructor(
     val pieChartValues: LiveData<List<PieChartValue>> = pieDataSet.map { mapToPieChartValueList() }
 
     init {
+        initPieChart()
+    }
+
+    fun initPieChart(){
         val pieChart = createPieChartUseCase.execute()
         _pieChartAppearance.value = pieChart.appearance
         _pieDataSet.value = pieChart.dataSet
@@ -308,6 +313,10 @@ class PieChartViewModel @Inject constructor(
         _pieDataSet.updateValue {
             it.label = name
         }
+    }
+
+    fun saveChartToGallery(bitmap: Bitmap, name: String): Boolean {
+        return saveChartAsImageUseCase.execute(bitmap = bitmap, name = name)
     }
 
 

@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_pieChartFragment"
-            app:destination="@id/pieChartFragment" />
+            app:destination="@id/pieChartFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/pieChartFragment"
@@ -21,7 +22,9 @@
         tools:layout="@layout/fragment_pie_chart">
         <action
             android:id="@+id/action_pieChartFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 
 

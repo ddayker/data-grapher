@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dayker.datagrapher.R
 import com.dayker.datagrapher.databinding.ItemPieChartBinding
-import com.dayker.datagrapher.presentation.ui.diffutil.DiffUtilCallback
+import com.dayker.datagrapher.presentation.core.DiffUtilCallback
 import com.dayker.datagrapher.presentation.ui.piechart.PieChartValueConfigFragmentDirections
 import com.dayker.datagrapher.presentation.ui.piechart.models.PieChartValue
-import com.dayker.datagrapher.utils.Utils.calculatePercentage
+import com.dayker.datagrapher.utils.Utilities.calculatePercentage
 
 class PieChartValuesAdapter(
     private var dataSet: List<PieChartValue>,
