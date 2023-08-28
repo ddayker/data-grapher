@@ -14,6 +14,7 @@ import com.dayker.datagrapher.R
 import com.dayker.datagrapher.databinding.FragmentPieChartBinding
 import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.presentation.core.ChartExporter
+import com.dayker.datagrapher.presentation.core.ChartSharer
 import com.dayker.datagrapher.presentation.ui.piechart.viewmodel.PieChartViewModel
 import com.dayker.datagrapher.utils.PieChartDefaults.ANIMATION_TIME
 import com.dayker.datagrapher.utils.UIUtilities.showConfirmationDialog
@@ -29,7 +30,7 @@ import com.github.mikephil.charting.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PieChartFragment : Fragment(), ChartExporter {
+class PieChartFragment : Fragment(), ChartExporter, ChartSharer {
 
     private var binding: FragmentPieChartBinding? = null
     private val viewModel: PieChartViewModel by activityViewModels()
@@ -160,9 +161,22 @@ class PieChartFragment : Fragment(), ChartExporter {
         binding?.appBar?.btnExport?.setOnClickListener {
             exportChartImage()
         }
+        binding?.appBar?.btnShare?.setOnClickListener {
+            shareChartImage()
+        }
     }
 
-     override fun exportChartImage(){
+    override fun shareChartImage() {
+        val bitmap = viewToBitmap(view = binding?.chart!!)
+        startActivity(
+            viewModel.getShareImageIntent(
+                bitmap = bitmap,
+                title = getString(R.string.send_an_image)
+            )
+        )
+    }
+
+    override fun exportChartImage() {
         val bitmap = viewToBitmap(view = binding?.chart!!)
         val displayName = generateImageName(requireContext())
         if (Build.VERSION.SDK_INT < 29) {

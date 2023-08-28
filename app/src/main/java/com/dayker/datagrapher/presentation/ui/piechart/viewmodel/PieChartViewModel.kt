@@ -1,5 +1,6 @@
 package com.dayker.datagrapher.presentation.ui.piechart.viewmodel
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Typeface
@@ -9,7 +10,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.dayker.datagrapher.domain.models.PieChartAppearance
 import com.dayker.datagrapher.domain.usecase.CreatePieChartUseCase
-import com.dayker.datagrapher.domain.usecase.SaveChartAsImageUseCase
+import com.dayker.datagrapher.domain.usecase.SaveImageUseCase
+import com.dayker.datagrapher.domain.usecase.ShareImageUseCase
 import com.dayker.datagrapher.presentation.ui.piechart.models.PieChartValue
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.Legend.LegendOrientation
@@ -22,7 +24,8 @@ import javax.inject.Inject
 @HiltViewModel
 class PieChartViewModel @Inject constructor(
     private val createPieChartUseCase: CreatePieChartUseCase,
-    private val saveChartAsImageUseCase: SaveChartAsImageUseCase
+    private val saveChartAsImageUseCase: SaveImageUseCase,
+    private val shareImageUseCase: ShareImageUseCase
 ) : ViewModel() {
 
     private val _pieDataSet = MutableLiveData<PieDataSet>()
@@ -40,7 +43,7 @@ class PieChartViewModel @Inject constructor(
         initPieChart()
     }
 
-    fun initPieChart(){
+    fun initPieChart() {
         val pieChart = createPieChartUseCase.execute()
         _pieChartAppearance.value = pieChart.appearance
         _pieDataSet.value = pieChart.dataSet
@@ -309,7 +312,7 @@ class PieChartViewModel @Inject constructor(
         }
     }
 
-    fun setChartName(name: String){
+    fun setChartName(name: String) {
         _pieDataSet.updateValue {
             it.label = name
         }
@@ -319,5 +322,7 @@ class PieChartViewModel @Inject constructor(
         return saveChartAsImageUseCase.execute(bitmap = bitmap, name = name)
     }
 
-
+    fun getShareImageIntent(bitmap: Bitmap, title: String): Intent {
+        return shareImageUseCase.execute(bitmap = bitmap, title = title)
+    }
 }

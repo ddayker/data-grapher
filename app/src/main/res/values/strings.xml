@@ -100,10 +100,13 @@
     <string name="entries">Entries</string>
     <string name="reset_chart">"Resetting the chart"</string>
     <string name="lost_chart_warning">The settings of this chart will be lost!</string>
-    <string name="image_saved">The image was saved to your device</string>
+    <string name="image_saved">The image has been saved to your device</string>
     <string name="image_name">Image name</string>
     <string name="image_saving_error">Error saving the image</string>
     <string name="save_as_image">Save as image</string>
     <string name="image_name_prefix">chart_</string>
     <string name="image_name_postfix">.jpg</string>
+    <string name="send_an_image">Send an image</string>
+    <string name="file_provider_authority">com.dayker.datagrapher.fileprovider</string>
+
 </resources>

@@ -1,7 +1,7 @@
 package com.dayker.datagrapher.presentation.core
 
 /**
- * Exporting chart images to the user's device.
+ * An interface to define the contract for exporting a chart image.
  */
 interface ChartExporter {
 
