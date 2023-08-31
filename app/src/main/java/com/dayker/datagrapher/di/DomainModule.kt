@@ -1,9 +1,8 @@
 package com.dayker.datagrapher.di
 
+import com.dayker.datagrapher.domain.repository.AuthRepository
 import com.dayker.datagrapher.domain.repository.ImageRepository
-import com.dayker.datagrapher.domain.usecase.CreatePieChartUseCase
-import com.dayker.datagrapher.domain.usecase.SaveImageUseCase
-import com.dayker.datagrapher.domain.usecase.ShareImageUseCase
+import com.dayker.datagrapher.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +25,20 @@ object DomainModule {
     @Provides
     fun provideShareImageUseCase(imageRepository: ImageRepository): ShareImageUseCase {
         return ShareImageUseCase(imageRepository = imageRepository)
+    }
+
+    @Provides
+    fun provideSignUpByEmailUseCase(authRepository: AuthRepository): SignUpByEmailUseCase {
+        return SignUpByEmailUseCase(authRepository = authRepository)
+    }
+
+    @Provides
+    fun provideSignInByEmailUseCase(authRepository: AuthRepository): SignInByEmailUseCase {
+        return SignInByEmailUseCase(authRepository = authRepository)
+    }
+
+    @Provides
+    fun provideResetPasswordUseCase(authRepository: AuthRepository): ResetPasswordUseCase {
+        return ResetPasswordUseCase(authRepository = authRepository)
     }
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "777053888290",
+    "project_id": "datagrapher-1",
+    "storage_bucket": "datagrapher-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777053888290:android:86e3b8ffdfa57f257b8f7b",
+        "android_client_info": {
+          "package_name": "com.dayker.datagrapher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777053888290-7dvkk0d16d26ah4g8uvei2klbfi8jhip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dayker.datagrapher",
+            "certificate_hash": "418df0b008c3c5df9b6ff7c9fbe4c79067a8c2c7"
+          }
+        },
+        {
+          "client_id": "777053888290-ctjl0ng2h19aheuqtfaij12uu8cb9uli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmfFMZU43E-jqdwr7UzlYnelXS9IGuj3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777053888290-ctjl0ng2h19aheuqtfaij12uu8cb9uli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

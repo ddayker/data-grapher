@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.util.Patterns
 import android.view.View
 import android.widget.SeekBar
 import androidx.core.app.ActivityCompat
@@ -91,4 +92,11 @@ object Utilities {
         context.getString(R.string.image_name_prefix) + System.currentTimeMillis() + context.getString(
             R.string.image_name_postfix
         )
+
+
+    fun validEmailHelper(email: String, context: Context): String? {
+        return if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            context.getString(R.string.invalid_email)
+        } else null
+    }
 }

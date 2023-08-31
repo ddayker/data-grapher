@@ -7,4 +7,5 @@ object Constants {
     const val VALUE_THREE_LABEL = "Value 3"
     const val VALUE_FOUR_LABEL = "Value 4"
     const val CHART_DEFAULT_LABEL = "Results"
+    const val REQ_ONE_TAP = 2
 }

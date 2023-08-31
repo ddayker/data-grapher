@@ -108,5 +108,28 @@
     <string name="image_name_postfix">.jpg</string>
     <string name="send_an_image">Send an image</string>
     <string name="file_provider_authority">com.dayker.datagrapher.fileprovider</string>
-
+    <string name="data_grapher_logo">Data Grapher</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log in!</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="log_in_to_your_account">Log in to your account!</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_to_data_grapher">Sign up to Data Grapher</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="password_recovery">Password recovery</string>
+    <string name="an_email_will_be_sent_to_you_to_reset_your_password">An email will be sent to you to reset your password.</string>
+    <string name="submit">Submit</string>
+    <string name="web_client_id">777053888290-v8a0c6oclin233shamhv7km4ct7vvhr9.apps.googleusercontent.com</string>
+    <string name="charts">Charts</string>
+    <string name="support">Support</string>
+    <string name="logout">Logout</string>
+    <string name="message_sent">The message has been sent.</string>
+    <string name="invalid_password">The password must consist of at least 6 symbols</string>
+    <string name="invalid_email">Invalid mail format</string>
+    <string name="invalid_confirmation">Incorrect password confirmation</string>
+    <string name="authentication_failed">Authentication failed</string>
 </resources>

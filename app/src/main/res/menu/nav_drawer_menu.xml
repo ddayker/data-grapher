@@ -7,16 +7,12 @@
             android:icon="@mipmap/ic_launcher_foreground"
             android:title="@string/profile" />
         <item
-            android:id="@+id/itemSettings"
+            android:id="@+id/itemCharts"
             android:icon="@drawable/ic_launcher_foreground"
-            android:title="@string/settings" />
-    <item android:title="@string/app_name">
-        <menu>
-            <item
-                android:id="@+id/itemChart"
-                android:icon="@drawable/ic_launcher_foreground"
-                android:title="@string/chart" />
-        </menu>
-    </item>
+            android:title="@string/charts" />
+        <item
+            android:id="@+id/itemSupport"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="@string/support" />
     </group>
 </menu>
